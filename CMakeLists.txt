@@ -1,0 +1,27 @@
+cmake_minimum_required(VERSION 3.0.0)
+
+project(omniaz_cartracking VERSION 0.1.0)
+add_executable(omniaz_cartracking src/single.cpp src/omnispace.cpp src/include/omnispace.hpp src/include/omniqueue.hpp)
+set( CMAKE_CXX_VISIBILITY_PRESET hidden )
+set( CMAKE_TOOLCHAIN_FILE "./vcpkg/scripts/buildsystems/vcpkg.cmake" )
+
+if(${CMAKE_SYSTEM_NAME} STREQUAL "Darwin")
+    set( OpenCV_DIR "./vcpkg_installed/x64-osx/share/opencv" )
+elseif(${CMAKE_SYSTEM_NAME} STREQUAL "Windows")
+    set( OpenCV_DIR "./vcpkg_installed/x64-windows/share/opencv" )
+else() 
+    message( FATAL_ERROR "Not Supported OS" )
+endif()
+
+find_package( OpenCV REQUIRED )
+if( OpenCV_FOUND )
+  include_directories( ${OpenCV_INCLUDE_DIRS} )
+  link_directories( ${OpenCV_LIB_DIR} )
+  target_link_libraries(omniaz_cartracking PRIVATE ${OpenCV_LIBS} )
+endif()
+
+include(CTest)
+enable_testing()
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

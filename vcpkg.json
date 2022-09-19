@@ -1,0 +1,12 @@
+{
+    "$schema": "https://raw.githubusercontent.com/microsoft/vcpkg/master/scripts/vcpkg.schema.json",
+    "name": "omniaz-cartracking",
+    "version": "0.0.1",
+    "dependencies": [
+      {
+        "name": "opencv4",
+        "version>=":"4.5.5#1"
+      }
+    ],
+    "builtin-baseline": "019027ada51d9835643c741435fdc63a61e3e3c9"
+}

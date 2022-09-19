@@ -1,0 +1,13 @@
+Given a video of traffic please find and track all cars in it.
+
+Goal : 
+
+- Design a processing pipeline: Main concern is the speed of processing, memory usage and task independence.
+- Think carefully whether consecutive tasks can be run in parallel (please use multithreading).
+Detection and tracking: should use separate algorithms. one for detection and one for tracking.
+
+- Provide a report:
+    - what was the total number of cars (track number)
+    - distribution of track life time (time from initialization to termination)
+    - avg CPU and memory usage
+    - what is the time it takes a video frame to travel through the entire pipeline?

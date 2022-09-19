@@ -1,0 +1,6 @@
+vcpkg_installed/*
+out/*
+.DS_Store
+.vscode
+.idea
+cmake-build-debug
